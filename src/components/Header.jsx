@@ -8,19 +8,68 @@ import { IconMenu, IconClose, IconChevronDown } from "./icons/Icons";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isDarkBackground, setIsDarkBackground] = useState(false);
   const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
   const [isMobileProductOpen, setIsMobileProductOpen] = useState(false);
   const dropdownRef = useRef(null);
   const location = useLocation();
 
-  // Deteksi scroll untuk mengecilkan header
+  // Logika mendeteksi apakah posisi tampilan sedang berada di atas latar belakang coklat (bg-tua / footer)
+  const checkIfOverDark = () => {
+    if (typeof window === "undefined" || typeof document === "undefined") return false;
+
+    // 1. Cek apakah posisi scroll berada di area footer (footer memiliki latar belakang coklat bg-tua)
+    const scrollBottom = window.scrollY + window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    if (documentHeight - scrollBottom < 500) {
+      return true;
+    }
+
+    // 2. Periksa elemen DOM di bawah posisi header dan area tengah viewport
+    const checkPoints = [
+      { x: window.innerWidth / 2, y: 35 },
+      { x: window.innerWidth / 2, y: Math.min(220, window.innerHeight * 0.3) }
+    ];
+
+    for (const pt of checkPoints) {
+      const elements = document.elementsFromPoint(pt.x, pt.y);
+      for (const el of elements) {
+        if (!el || el.id === "mobile-menu-backdrop" || el.id === "mobile-menu-card") continue;
+        if (el.tagName === "FOOTER") return true;
+        if (el.classList && (el.classList.contains("bg-tua") || el.classList.contains("bg-karamel"))) {
+          return true;
+        }
+        const style = window.getComputedStyle(el);
+        const bg = style.backgroundColor;
+        // Deteksi warna coklat tua khas Lestari (#3A1E0D = rgb(58, 30, 13) atau #7A4420 = rgb(122, 68, 32))
+        if (bg === "rgb(58, 30, 13)" || bg === "rgb(122, 68, 32)") {
+          return true;
+        }
+      }
+    }
+
+    return false;
+  };
+
+  // Deteksi scroll untuk mengecilkan header & cek latar belakang
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+      if (isOpen) {
+        setIsDarkBackground(checkIfOverDark());
+      }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isOpen]);
+
+  const handleToggleMenu = () => {
+    const nextState = !isOpen;
+    if (nextState) {
+      setIsDarkBackground(checkIfOverDark());
+    }
+    setIsOpen(nextState);
+  };
 
   // Tutup menu saat rute berpindah
   useEffect(() => {
@@ -218,8 +267,12 @@ export default function Header() {
         {/* Animated Mobile Hamburger Button (Morph Hamburger to X) */}
         <button
           type="button"
-          onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden w-11 h-11 flex flex-col items-center justify-center gap-[5px] rounded-full bg-tua text-susu hover:bg-karamel transition-all duration-200 cursor-pointer shadow-xs active:scale-90"
+          onClick={handleToggleMenu}
+          className={`lg:hidden w-11 h-11 flex flex-col items-center justify-center gap-[5px] rounded-full bg-tua text-susu hover:bg-karamel transition-all duration-200 cursor-pointer shadow-xs active:scale-90 ${
+            isDarkBackground
+              ? "border-2 border-white/30 ring-1 ring-white/15"
+              : "border-2 border-transparent"
+          }`}
           aria-expanded={isOpen}
           aria-label={isOpen ? "Tutup menu" : "Buka menu"}
         >
@@ -246,14 +299,20 @@ export default function Header() {
         <>
           {/* Full Screen Backdrop dengan Blur Penuh Seluruh Layar */}
           <div
+            id="mobile-menu-backdrop"
             className="lg:hidden fixed inset-0 z-40 bg-tua/60 backdrop-blur-md transition-all duration-300 animate-fade-in"
             onClick={() => setIsOpen(false)}
             aria-hidden="true"
           />
 
-          {/* Floating Mobile Navbar Card dengan Gap dari Header Logo */}
+          {/* Floating Mobile Navbar Card dengan Garis Tepi Putih Opacity Rendah Saat di Background Coklat */}
           <div
-            className={`lg:hidden fixed inset-x-3.5 sm:inset-x-6 z-50 bg-tua text-susu flex flex-col p-5 sm:p-6 rounded-2xl border-2 border-tua shadow-2xl animate-menu-slide-down overflow-y-auto ${
+            id="mobile-menu-card"
+            className={`lg:hidden fixed inset-x-3.5 sm:inset-x-6 z-50 bg-tua text-susu flex flex-col p-5 sm:p-6 rounded-2xl shadow-2xl animate-menu-slide-down overflow-y-auto transition-all duration-200 ${
+              isDarkBackground
+                ? "border-2 border-white/25 ring-1 ring-white/10"
+                : "border-2 border-tua/40"
+            } ${
               isScrolled ? "top-[68px]" : "top-[80px]"
             }`}
             style={{

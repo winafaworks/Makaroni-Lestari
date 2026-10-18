@@ -33,7 +33,7 @@ export default function OrderFab() {
     <aside aria-label="Aksi Cepat">
       <Link
         to="/pesan"
-        className={`btn-press fixed bottom-6 right-6 z-40 h-[52px] px-5 rounded-full bg-tua text-keju border-2 border-susu shadow-lg flex items-center gap-2.5 hover:bg-karamel ring-2 ring-tua/20 font-bold text-sm select-none transition-all duration-300 ease-out ${
+        className={`btn-press fixed bottom-6 right-6 z-30 h-[52px] px-5 rounded-full bg-tua text-keju border-2 border-susu shadow-lg flex items-center gap-2.5 hover:bg-karamel ring-2 ring-tua/20 font-bold text-sm select-none transition-all duration-300 ease-out ${
           isVisible
             ? "opacity-100 translate-y-0 pointer-events-auto scale-100"
             : "opacity-0 translate-y-4 pointer-events-none scale-95"

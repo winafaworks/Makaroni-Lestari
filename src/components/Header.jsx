@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import Badge from "./Badge";
 import { site } from "../content/site";
@@ -70,7 +71,7 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-40 w-full transition-all duration-200 border-b ${
+      className={`sticky top-0 z-50 w-full transition-all duration-200 border-b ${
         isScrolled
           ? "bg-keju/95 backdrop-blur-md border-tua/20 shadow-xs py-2.5"
           : "bg-keju border-transparent py-4"
@@ -241,11 +242,11 @@ export default function Header() {
       </div>
 
       {/* Mobile Drawer Menu dengan Animasi Slide Down & Staggered Items */}
-      {isOpen && (
+      {isOpen && typeof document !== "undefined" && createPortal(
         <>
-          {/* Backdrop semi-transparan untuk menutup menu saat klik di luar */}
+          {/* Full Screen Backdrop dengan Blur Penuh Seluruh Layar */}
           <div
-            className="lg:hidden fixed inset-0 z-40 bg-tua/40 backdrop-blur-xs transition-opacity"
+            className="lg:hidden fixed inset-0 z-40 bg-tua/60 backdrop-blur-md transition-all duration-300 animate-fade-in"
             onClick={() => setIsOpen(false)}
             aria-hidden="true"
           />
@@ -377,7 +378,8 @@ export default function Header() {
             </p>
           </div>
         </div>
-      </>
+      </>,
+      document.body
     )}
     </header>
   );

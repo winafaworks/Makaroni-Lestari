@@ -20,27 +20,27 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
           {/* Kolom 1: Identitas & Lencana */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-2.5">
+          <div className="space-y-4">
+            <div className="flex items-center gap-3">
               <Badge size="sm" />
               <div>
                 <span className="font-judul text-lg sm:text-xl text-mentega block leading-none">
                   {site.name}
                 </span>
-                <span className="text-[10px] text-susu/70 tracking-widest uppercase mt-0.5 block">
+                <span className="text-xs text-susu/70 tracking-widest uppercase mt-0.5 block">
                   Purwokerto • Est. {site.yearEstablished}
                 </span>
               </div>
             </div>
-            <p className="text-xs text-susu/75 leading-relaxed max-w-sm">
+            <p className="text-sm text-susu/80 leading-relaxed max-w-sm">
               Camilan makaroni keju renyah, gurih, dan lezat khas Purwokerto. Menemani momen santai keluarga dan teman sejak 2012.
             </p>
           </div>
 
           {/* Kolom 2: Menu Navigasi */}
-          <div className="space-y-2.5">
-            <h4 className="font-judul text-sm sm:text-base text-mentega">Menu</h4>
-            <ul className="space-y-1.5 text-xs text-susu/75">
+          <div className="space-y-3">
+            <h4 className="font-judul text-lg text-mentega">Menu</h4>
+            <ul className="space-y-2 text-sm text-susu/80">
               <li>
                 <Link to="/" className="hover:text-mentega transition-colors">
                   Beranda
@@ -80,9 +80,9 @@ export default function Footer() {
           </div>
 
           {/* Kolom 3: Varian Rasa */}
-          <div className="space-y-2.5">
-            <h4 className="font-judul text-sm sm:text-base text-mentega">Varian Rasa</h4>
-            <ul className="space-y-1.5 text-xs text-susu/75">
+          <div className="space-y-3">
+            <h4 className="font-judul text-lg text-mentega">Varian Rasa</h4>
+            <ul className="space-y-2 text-sm text-susu/80">
               {products.map((item) => (
                 <li key={item.id}>
                   <Link
@@ -91,7 +91,7 @@ export default function Footer() {
                   >
                     <span>{item.name}</span>
                     {item.isBestSeller && (
-                      <span className="text-[9px] uppercase font-bold tracking-wider px-1.5 py-0.2 rounded bg-mentega/20 text-mentega border border-mentega/30">
+                      <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.2 rounded bg-mentega/20 text-mentega border border-mentega/30">
                         Favorit
                       </span>
                     )}
@@ -102,30 +102,30 @@ export default function Footer() {
           </div>
 
           {/* Kolom 4: Kontak & Kanal Sosial */}
-          <div className="space-y-2.5">
-            <h4 className="font-judul text-sm sm:text-base text-mentega">Hubungi Kami</h4>
-            <p className="text-xs text-susu/75 flex items-start gap-2">
-              <IconMapPin className="w-4 h-4 text-mentega shrink-0 mt-0.5" />
+          <div className="space-y-3">
+            <h4 className="font-judul text-lg text-mentega">Hubungi Kami</h4>
+            <p className="text-sm text-susu/80 flex items-start gap-2">
+              <IconMapPin className="w-5 h-5 text-mentega shrink-0 mt-0.5" />
               <span>{site.address}</span>
             </p>
-            <p className="text-[11px] text-susu/65">
+            <p className="text-xs text-susu/70">
               Jam Layanan: {site.operatingHours}
             </p>
 
-            <div className="pt-1.5">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-susu/60 block mb-2">
+            <div className="pt-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-susu/60 block mb-2">
                 Kanal Resmi:
               </span>
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-3">
                 {/* Instagram */}
                 <a
                   href={site.socials.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram Makaroni Keju Lestari"
-                  className="w-8 h-8 rounded-full bg-susu/10 hover:bg-mentega hover:text-tua text-susu flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-susu/10 hover:bg-mentega hover:text-tua text-susu flex items-center justify-center transition-colors"
                 >
-                  <IconInstagram className="w-4 h-4" />
+                  <IconInstagram className="w-5 h-5" />
                 </a>
 
                 {/* TikTok (bila bukan TODO) */}
@@ -135,9 +135,9 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="TikTok Makaroni Keju Lestari"
-                    className="w-8 h-8 rounded-full bg-susu/10 hover:bg-mentega hover:text-tua text-susu flex items-center justify-center transition-colors"
+                    className="w-10 h-10 rounded-full bg-susu/10 hover:bg-mentega hover:text-tua text-susu flex items-center justify-center transition-colors"
                   >
-                    <IconTikTok className="w-4 h-4" />
+                    <IconTikTok className="w-5 h-5" />
                   </a>
                 )}
 
@@ -148,9 +148,9 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Shopee Makaroni Keju Lestari"
-                    className="w-8 h-8 rounded-full bg-susu/10 hover:bg-mentega hover:text-tua text-susu flex items-center justify-center transition-colors"
+                    className="w-10 h-10 rounded-full bg-susu/10 hover:bg-mentega hover:text-tua text-susu flex items-center justify-center transition-colors"
                   >
-                    <IconShopee className="w-4 h-4" />
+                    <IconShopee className="w-5 h-5" />
                   </a>
                 )}
 
@@ -161,9 +161,9 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="WhatsApp Makaroni Keju Lestari"
-                    className="w-8 h-8 rounded-full bg-susu/10 hover:bg-mentega hover:text-tua text-susu flex items-center justify-center transition-colors"
+                    className="w-10 h-10 rounded-full bg-susu/10 hover:bg-mentega hover:text-tua text-susu flex items-center justify-center transition-colors"
                   >
-                    <IconWhatsApp className="w-4 h-4" />
+                    <IconWhatsApp className="w-5 h-5" />
                   </a>
                 )}
               </div>
@@ -172,9 +172,9 @@ export default function Footer() {
         </div>
 
         {/* Hak Cipta & Informasi Footer */}
-        <div className="mt-10 pt-5 border-t border-susu/15 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-susu/60 pb-safe">
+        <div className="mt-12 pt-6 border-t border-susu/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-susu/60 pb-safe">
           <p>© {currentYear} {site.name}. Seluruh hak cipta dilindungi.</p>
-          <p className="tracking-widest uppercase text-[10px] text-susu/50">GURIHNYA SAMPAI KE HATI</p>
+          <p>GURIHNYA SAMPAI KE HATI</p>
         </div>
       </div>
     </footer>

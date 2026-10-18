@@ -32,7 +32,7 @@ export function IconShopee({ className = "w-5 h-5" }) {
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M6 8V6a6 6 0 0 1 12 0v2" />
       <rect x="3" y="8" width="18" height="14" rx="2" />
-      <path d="M10 13c.5-.8 1.5-1 2-1s1.5.2 2 1c.5 1-1 2-2 2s-2.5 1-2 2c.5 1 1.5 1 2 1s1.5-.2 2-1" />
+      <path d="M14 13c-.5-.8-1.5-1-2-1s-1.5.2-2 1c-.5 1 1 2 2 2s2.5 1 2 2c-.5 1-1.5 1-2 1s-1.5-.2-2-1" />
     </svg>
   );
 }

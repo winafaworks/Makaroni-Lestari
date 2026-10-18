@@ -253,7 +253,7 @@ export default function Home() {
                 Galeri Foto
               </span>
               <h2 className="font-judul text-2xl sm:text-3xl md:text-4xl text-tua">
-                Kelezatan Makaroni Lestari
+                Berbagai Kegiatan Makaroni Lestari
               </h2>
             </div>
             <Link

@@ -78,8 +78,8 @@ export default function Header() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Brand / Logo */}
-        <Link to="/" className="flex items-center gap-3 group">
-          <Badge size="sm" className="group-hover:rotate-6 transition-transform duration-200" />
+        <Link to="/" className="flex items-center gap-3.5 sm:gap-4 group">
+          <Badge size="sm" className="group-hover:rotate-6 transition-transform duration-200 shrink-0" />
           <div className="flex flex-col">
             <span className="font-judul text-base sm:text-lg md:text-xl text-tua leading-none tracking-tight">
               Makaroni Lestari
@@ -242,14 +242,25 @@ export default function Header() {
 
       {/* Mobile Drawer Menu dengan Animasi Slide Down & Staggered Items */}
       {isOpen && (
-        <div
-          className="lg:hidden fixed inset-0 top-[60px] z-50 bg-tua text-susu flex flex-col p-6 animate-menu-slide-down overflow-y-auto shadow-2xl"
-          style={{
-            height: "calc(100vh - 60px)",
-            paddingBottom: "calc(2rem + env(safe-area-inset-bottom, 0px))"
-          }}
-        >
-          <nav className="flex flex-col space-y-3 pt-2" aria-label="Menu Ponsel">
+        <>
+          {/* Backdrop semi-transparan untuk menutup menu saat klik di luar */}
+          <div
+            className="lg:hidden fixed inset-0 z-40 bg-tua/40 backdrop-blur-xs transition-opacity"
+            onClick={() => setIsOpen(false)}
+            aria-hidden="true"
+          />
+
+          {/* Floating Mobile Navbar Card dengan Gap dari Header Logo */}
+          <div
+            className={`lg:hidden fixed inset-x-3.5 sm:inset-x-6 z-50 bg-tua text-susu flex flex-col p-5 sm:p-6 rounded-2xl border-2 border-tua shadow-2xl animate-menu-slide-down overflow-y-auto ${
+              isScrolled ? "top-[68px]" : "top-[80px]"
+            }`}
+            style={{
+              maxHeight: isScrolled ? "calc(100dvh - 82px)" : "calc(100dvh - 94px)",
+              paddingBottom: "calc(1.5rem + env(safe-area-inset-bottom, 0px))"
+            }}
+          >
+          <nav className="flex flex-col space-y-3 pt-1" aria-label="Menu Ponsel">
             {/* Beranda */}
             <div className="animate-menu-item-in" style={{ animationDelay: "40ms" }}>
               <NavLink
@@ -366,7 +377,8 @@ export default function Header() {
             </p>
           </div>
         </div>
-      )}
+      </>
+    )}
     </header>
   );
 }

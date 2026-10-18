@@ -1,0 +1,223 @@
+@import "tailwindcss";
+
+@import "@fontsource/young-serif";
+@import "@fontsource-variable/figtree";
+
+@theme {
+  --color-keju: #F5B722;
+  --color-mentega: #FFD45C;
+  --color-susu: #FFF0B8;
+  --color-tua: #3A1E0D;
+  --color-karamel: #7A4420;
+  --color-cabai: #C8321E;
+
+  --font-judul: "Young Serif", Georgia, serif;
+  --font-isi: "Figtree Variable", system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+  -webkit-text-size-adjust: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-isi);
+  scrollbar-color: var(--color-karamel) rgba(58, 30, 13, 0.12);
+  scrollbar-width: thin;
+}
+
+/* Custom Scrollbar serasi dengan palet warna keju & karamel Lestari */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(58, 30, 13, 0.08);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-karamel);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-tua);
+}
+
+body {
+  background-color: var(--color-keju);
+  color: var(--color-tua);
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: rgba(58, 30, 13, 0.15);
+}
+
+/* Tabular figures for numbers and prices */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Arch shape for product photos */
+.arch-img {
+  border-radius: 999px 999px 0 0;
+}
+
+/* Single clean border packaging frame */
+.frame-kemasan {
+  position: relative;
+  border: 2px solid var(--color-tua);
+  background-color: var(--color-susu);
+}
+
+/* Scalloped edge decorative separator (wave / scallop border) */
+.scallop-divider {
+  width: 100%;
+  height: 16px;
+  background-repeat: repeat-x;
+  background-size: 24px 16px;
+  background-image: radial-gradient(circle at 12px 16px, transparent 12px, currentColor 13px);
+}
+
+.scallop-divider-top {
+  width: 100%;
+  height: 16px;
+  background-repeat: repeat-x;
+  background-size: 24px 16px;
+  background-image: radial-gradient(circle at 12px 0px, transparent 12px, currentColor 13px);
+}
+
+/* Macaroni doodle background pattern (Pola Kemasan Asli) */
+.doodle-pattern,
+.cheese-pattern {
+  background-image: url("/images/makaroni_doodle_kemasan.svg");
+  background-repeat: repeat;
+  background-size: 280px 280px;
+}
+
+/* Safe area padding utilities */
+.pb-safe {
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+}
+
+.bottom-safe {
+  bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+}
+
+/* Button active feel: turun 2px */
+.btn-press:active {
+  transform: translateY(2px);
+}
+
+/* Form inputs styling */
+input, select, textarea {
+  font-size: 1rem; /* >= 16px to prevent iOS auto-zoom */
+  scroll-margin-top: 5rem;
+}
+
+/* Infinite Marquee Animation (kanan ke kiri) */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
+
+/* Page Transition: Fade In saat pindah halaman */
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-page-fade {
+  animation: pageFadeIn 0.3s ease-out forwards;
+  will-change: opacity, transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-page-fade {
+    animation: none;
+  }
+}
+
+/* Stabilo Marker Sweep Animation */
+@keyframes stabiloSweep {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+  4% {
+    opacity: 0.95;
+  }
+  25%, 72% {
+    width: 100%;
+    opacity: 0.95;
+  }
+  86% {
+    width: 100%;
+    opacity: 0;
+  }
+  92% {
+    width: 0%;
+    opacity: 0;
+  }
+  100% {
+    width: 0%;
+    opacity: 0;
+  }
+}
+
+.animate-stabilo-sweep {
+  animation: stabiloSweep 4.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  transform-origin: left center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-stabilo-sweep {
+    animation: none;
+    width: 100%;
+    opacity: 0.95;
+  }
+}
+
+/* Typing cursor blink */
+@keyframes cursorBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: cursorBlink 0.8s step-end infinite;
+}
+
+
+

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://makaronikejulestari.pages.dev/sitemap.xml

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <!-- 12-point scalloped star / badge -->
+    <path id="scallop" d="M32 2 C36 2 39 6 43 7 C47 8 51 9 54 13 C57 17 56 21 58 25 C60 29 62 33 61 37 C60 41 57 45 55 49 C53 53 50 56 46 58 C42 60 38 60 34 61 C30 62 26 62 22 60 C18 58 15 55 12 52 C9 49 7 45 6 41 C5 37 4 33 5 29 C6 25 8 21 11 17 C14 13 18 10 22 8 C26 6 28 2 32 2 Z" />
+  </defs>
+  <!-- Background Badge: Cokelat Tua #3A1E0D -->
+  <circle cx="32" cy="32" r="30" fill="#3A1E0D" stroke="#FFF0B8" stroke-width="2" stroke-dasharray="3 2"/>
+  <!-- Inner Ring -->
+  <circle cx="32" cy="32" r="24" fill="none" stroke="#F5B722" stroke-width="1.5"/>
+  <!-- Wedge of cheese / 'L' symbol -->
+  <path d="M22 36 L42 36 L38 23 Z" fill="#F5B722" stroke="#FFF0B8" stroke-width="1"/>
+  <circle cx="30" cy="31" r="2" fill="#3A1E0D" opacity="0.6"/>
+  <circle cx="36" cy="33" r="1.5" fill="#3A1E0D" opacity="0.6"/>
+  <circle cx="26" cy="34" r="1" fill="#3A1E0D" opacity="0.6"/>
+  <!-- Text 'L' -->
+  <text x="32" y="49" font-family="'Young Serif', Georgia, serif" font-size="12" font-weight="bold" fill="#FFF0B8" text-anchor="middle">Lestari</text>
+</svg>

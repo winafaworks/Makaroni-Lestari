@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
+  <g fill="none" stroke="#3A1E0D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.10">
+    <!-- 1. Makaroni Elbow melengkung besar (kiri atas) -->
+    <path d="M 30 40 C 30 18, 62 18, 68 38 C 70 44, 62 48, 56 46 C 52 32, 42 32, 40 42 C 38 46, 30 46, 30 40 Z" />
+    <path d="M 46 26 C 48 30, 52 32, 54 36" stroke-width="1.2" />
+
+    <!-- 2. Irisan Keju berlubang (kanan atas) -->
+    <path d="M 160 30 L 210 30 L 195 62 L 150 55 Z" />
+    <path d="M 150 55 L 150 72 L 195 78 L 195 62" />
+    <path d="M 150 72 L 140 65 L 140 48 L 160 30" />
+    <circle cx="175" cy="45" r="4" />
+    <circle cx="190" cy="50" r="2.5" />
+    <circle cx="165" cy="62" r="3" />
+
+    <!-- 3. Makaroni Spiral / Twist (tengah) -->
+    <path d="M 115 110 C 122 105, 130 115, 138 110 C 145 105, 150 118, 145 125 C 138 130, 130 120, 122 125 C 115 130, 110 118, 115 110 Z" />
+    <path d="M 124 114 C 128 118, 132 120, 136 122" stroke-width="1.2" />
+
+    <!-- 4. Makaroni Pipa / Rigatoni miring (kiri bawah) -->
+    <ellipse cx="45" cy="160" rx="9" ry="5" transform="rotate(-30 45 160)" />
+    <path d="M 38 156 L 68 190" />
+    <path d="M 52 164 L 82 198" />
+    <path d="M 68 190 C 72 194, 78 196, 82 198" />
+    <line x1="44" y1="168" x2="74" y2="202" stroke-width="1.2" stroke-dasharray="2 3" />
+
+    <!-- 5. Makaroni Elbow melengkung kedua (kanan bawah) -->
+    <path d="M 180 180 C 180 158, 212 158, 218 178 C 220 184, 212 188, 206 186 C 202 172, 192 172, 190 182 C 188 186, 180 186, 180 180 Z" />
+
+    <!-- 6. Keju Balok Mini (tengah atas) -->
+    <path d="M 95 35 L 115 25 L 125 32 L 105 42 Z" />
+    <path d="M 95 35 L 95 45 L 105 52 L 105 42" />
+    <path d="M 105 52 L 125 42 L 125 32" />
+    <circle cx="102" cy="45" r="1.5" />
+
+    <!-- 7. Taburan bumbu & bintang renyah (doodle snack fillers) -->
+    <!-- Bintang 1 -->
+    <path d="M 90 85 L 92 90 L 97 92 L 92 94 L 90 99 L 88 94 L 83 92 L 88 90 Z" />
+    <!-- Bintang 2 -->
+    <path d="M 180 115 L 181 119 L 185 120 L 181 121 L 180 125 L 179 121 L 175 120 L 179 119 Z" />
+    <!-- Bintang 3 -->
+    <path d="M 35 110 L 36 113 L 39 114 L 36 115 L 35 118 L 34 115 L 31 114 L 34 113 Z" />
+
+    <!-- Titik renyah & butiran keju kecil -->
+    <circle cx="70" cy="75" r="2" fill="#3A1E0D" />
+    <circle cx="155" cy="95" r="1.5" fill="#3A1E0D" />
+    <circle cx="130" cy="165" r="2.5" />
+    <circle cx="145" cy="180" r="1.8" fill="#3A1E0D" />
+    <circle cx="100" cy="195" r="2" />
+    <circle cx="25" cy="195" r="1.5" fill="#3A1E0D" />
+    <circle cx="215" cy="100" r="2" fill="#3A1E0D" />
+  </g>
+</svg>

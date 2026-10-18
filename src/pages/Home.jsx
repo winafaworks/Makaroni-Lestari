@@ -101,7 +101,7 @@ export default function Home() {
                 ref={subRef}
                 className="text-base sm:text-lg md:text-xl text-karamel font-medium max-w-[50ch] mx-auto lg:mx-0 mb-8 leading-relaxed"
               >
-                Renyah, gurih, kejunya terasa. Dibuat dengan resep otentik pilihan keluarga.
+                Renyah, gurih, kejunya terasa. Dibuat dengan resep otentik pilihan semua kalangan.
               </p>
 
               <div

@@ -15,6 +15,12 @@ Berlaku untuk setiap perintah perubahan dari pemilik proyek, baik pada kode maup
 5. Buat perubahan sekecil mungkin. Sebelum selesai, periksa daftar berkas yang berubah dan pastikan semuanya terkait perintah.
 6. Tutup dengan ringkasan: apa yang diubah, berkas yang tersentuh, dan konfirmasi bahwa bagian lain tidak diubah.
 7. Jika perintah ambigu, ajukan satu pertanyaan singkat. Jangan menebak.
+8. **Otomatis Git Commit & Push ke GitHub**: Setiap kali selesai menyelesaikan perubahan yang diminta oleh pemilik proyek, agent **wajib** langsung menyimpan dan meng-upload perubahan ke GitHub:
+   - Lakukan `git add .`
+   - Tulis pesan commit deskriptif yang menjelaskan bagian yang diperbarui, dengan format:
+     `git commit -m "update bagian <nama bagian>: <detail singkat perubahan>"`
+     *(Contoh: `git commit -m "update header: animasi menu hamburger di tampilan mobile"` atau `git commit -m "update kemasan lainnya: tambahkan daftar harga"`)*
+   - Jalankan `git push origin main` (atau branch aktif).
 
 Pembangunan awal dari nol tidak dibatasi aturan ini. Aturan berlaku setelah ada bagian yang sudah jadi.
 

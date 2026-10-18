@@ -214,22 +214,36 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Mobile Menu Button (min 44x44) */}
+        {/* Animated Mobile Hamburger Button (Morph Hamburger to X) */}
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden w-11 h-11 flex items-center justify-center rounded-full bg-tua text-susu hover:bg-karamel transition-colors cursor-pointer"
+          className="lg:hidden w-11 h-11 flex flex-col items-center justify-center gap-[5px] rounded-full bg-tua text-susu hover:bg-karamel transition-all duration-200 cursor-pointer shadow-xs active:scale-90"
           aria-expanded={isOpen}
           aria-label={isOpen ? "Tutup menu" : "Buka menu"}
         >
-          {isOpen ? <IconClose className="w-5 h-5" /> : <IconMenu className="w-5 h-5" />}
+          <span
+            className={`block w-5 h-0.5 bg-susu rounded-full transition-all duration-300 ease-in-out origin-center ${
+              isOpen ? "rotate-45 translate-y-[7px]" : ""
+            }`}
+          />
+          <span
+            className={`block w-5 h-0.5 bg-susu rounded-full transition-all duration-200 ease-in-out ${
+              isOpen ? "opacity-0 -translate-x-2" : ""
+            }`}
+          />
+          <span
+            className={`block w-5 h-0.5 bg-susu rounded-full transition-all duration-300 ease-in-out origin-center ${
+              isOpen ? "-rotate-45 -translate-y-[7px]" : ""
+            }`}
+          />
         </button>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer Menu dengan Animasi Slide Down & Staggered Items */}
       {isOpen && (
         <div
-          className="lg:hidden fixed inset-0 top-[60px] z-50 bg-tua text-susu flex flex-col p-6 animate-fade-in overflow-y-auto"
+          className="lg:hidden fixed inset-0 top-[60px] z-50 bg-tua text-susu flex flex-col p-6 animate-menu-slide-down overflow-y-auto shadow-2xl"
           style={{
             height: "calc(100vh - 60px)",
             paddingBottom: "calc(2rem + env(safe-area-inset-bottom, 0px))"
@@ -237,20 +251,25 @@ export default function Header() {
         >
           <nav className="flex flex-col space-y-3 pt-2" aria-label="Menu Ponsel">
             {/* Beranda */}
-            <NavLink
-              to="/"
-              onClick={() => setIsOpen(false)}
-              className={({ isActive }) =>
-                `text-xl font-judul py-2 border-b border-susu/10 transition-colors ${
-                  isActive ? "text-mentega pl-2" : "text-susu hover:text-mentega"
-                }`
-              }
-            >
-              Beranda
-            </NavLink>
+            <div className="animate-menu-item-in" style={{ animationDelay: "40ms" }}>
+              <NavLink
+                to="/"
+                onClick={() => setIsOpen(false)}
+                className={({ isActive }) =>
+                  `text-xl font-judul py-2 border-b border-susu/10 transition-colors block ${
+                    isActive ? "text-mentega pl-2" : "text-susu hover:text-mentega"
+                  }`
+                }
+              >
+                Beranda
+              </NavLink>
+            </div>
 
             {/* Produk dengan Accordion Pilihan Kemasan di Ponsel */}
-            <div className="border-b border-susu/10 pb-2">
+            <div
+              className="border-b border-susu/10 pb-2 animate-menu-item-in"
+              style={{ animationDelay: "90ms" }}
+            >
               <div className="flex items-center justify-between py-2">
                 <NavLink
                   to="/produk"
@@ -266,14 +285,14 @@ export default function Header() {
                 <button
                   type="button"
                   onClick={() => setIsMobileProductOpen(!isMobileProductOpen)}
-                  className="p-2 text-susu hover:text-mentega cursor-pointer flex items-center gap-1 text-xs"
+                  className="p-2 text-susu hover:text-mentega cursor-pointer flex items-center gap-1 text-xs transition-colors"
                   aria-expanded={isMobileProductOpen}
                   aria-label="Pilihan kemasan"
                 >
                   <span className="text-xs text-susu/70">Pilihan Kemasan</span>
                   <IconChevronDown
-                    className={`w-4 h-4 transition-transform duration-200 ${
-                      isMobileProductOpen ? "rotate-180" : ""
+                    className={`w-4 h-4 transition-transform duration-300 ease-out ${
+                      isMobileProductOpen ? "rotate-180 text-mentega" : ""
                     }`}
                   />
                 </button>
@@ -281,7 +300,7 @@ export default function Header() {
 
               {/* Sub-menu Kemasan di Ponsel */}
               {isMobileProductOpen && (
-                <div className="pl-3 py-2 space-y-2 bg-susu/10 rounded-md mt-1 border-l-2 border-mentega">
+                <div className="pl-3 py-2 space-y-2 bg-susu/10 rounded-md mt-1 border-l-2 border-mentega animate-menu-slide-down">
                   {packagingItems.map((item) => (
                     <Link
                       key={item.title}
@@ -309,28 +328,36 @@ export default function Header() {
               )}
             </div>
 
-            {/* Menu Lainnya */}
-            {otherNavLinks.slice(1).map((item) => (
-              <NavLink
+            {/* Menu Lainnya dengan animasi berjenjang (staggered delay) */}
+            {otherNavLinks.slice(1).map((item, idx) => (
+              <div
                 key={item.to}
-                to={item.to}
-                onClick={() => setIsOpen(false)}
-                className={({ isActive }) =>
-                  `text-xl font-judul py-2 border-b border-susu/10 transition-colors ${
-                    isActive ? "text-mentega pl-2" : "text-susu hover:text-mentega"
-                  }`
-                }
+                className="animate-menu-item-in"
+                style={{ animationDelay: `${140 + idx * 50}ms` }}
               >
-                {item.label}
-              </NavLink>
+                <NavLink
+                  to={item.to}
+                  onClick={() => setIsOpen(false)}
+                  className={({ isActive }) =>
+                    `text-xl font-judul py-2 border-b border-susu/10 transition-colors block ${
+                      isActive ? "text-mentega pl-2" : "text-susu hover:text-mentega"
+                    }`
+                  }
+                >
+                  {item.label}
+                </NavLink>
+              </div>
             ))}
           </nav>
 
-          <div className="mt-auto pt-6 border-t border-susu/20">
+          <div
+            className="mt-auto pt-6 border-t border-susu/20 animate-menu-item-in"
+            style={{ animationDelay: "390ms" }}
+          >
             <Link
               to="/pesan"
               onClick={() => setIsOpen(false)}
-              className="btn-press w-full py-3.5 rounded-full bg-keju text-tua font-bold text-base flex items-center justify-center shadow-md"
+              className="btn-press w-full py-3.5 rounded-full bg-keju text-tua font-bold text-base flex items-center justify-center shadow-md hover:bg-mentega transition-colors"
             >
               Pesan Makaroni
             </Link>

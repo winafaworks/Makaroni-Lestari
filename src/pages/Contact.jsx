@@ -103,6 +103,18 @@ export default function Contact() {
                   </a>
                 )}
 
+                {site.socials.youtube && !site.socials.youtube.includes("TODO") && (
+                  <a
+                    href={site.socials.youtube}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2.5 p-2.5 rounded-md border border-tua/20 bg-mentega/20 hover:bg-mentega/50 text-tua text-xs font-semibold transition-colors"
+                  >
+                    <IconYouTube className="w-4 h-4 text-tua" />
+                    <span>YouTube Resmi</span>
+                  </a>
+                )}
+
                 {site.socials.shopee && !site.socials.shopee.includes("TODO") && (
                   <a
                     href={site.socials.shopee}

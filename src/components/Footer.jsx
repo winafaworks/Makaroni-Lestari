@@ -141,6 +141,19 @@ export default function Footer() {
                   </a>
                 )}
 
+                {/* YouTube */}
+                {site.socials.youtube && !site.socials.youtube.includes("TODO") && (
+                  <a
+                    href={site.socials.youtube}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="YouTube Makaroni Keju Lestari"
+                    className="w-10 h-10 rounded-full bg-susu/10 hover:bg-mentega hover:text-tua text-susu flex items-center justify-center transition-colors"
+                  >
+                    <IconYouTube className="w-5 h-5" />
+                  </a>
+                )}
+
                 {/* Shopee (bila bukan TODO) */}
                 {site.socials.shopee && !site.socials.shopee.includes("TODO") && (
                   <a

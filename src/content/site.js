@@ -29,12 +29,9 @@ export const site = {
   // Tautan Media Sosial Resmi
   socials: {
     instagram: "https://www.instagram.com/makaronikejulestari/",
-    // TODO(OWNER): Masukkan tautan TikTok resmi jika ada
-    tiktok: "TODO(OWNER)",
-    // TODO(OWNER): Masukkan tautan YouTube resmi jika ada
-    youtube: "TODO(OWNER)",
-    // TODO(OWNER): Masukkan tautan toko Shopee resmi jika ada
-    shopee: "TODO(OWNER)"
+    tiktok: "https://www.tiktok.com/@makaroni.keju.les?_r=1&_t=ZS-96nIfsLDGIH",
+    youtube: "https://www.youtube.com/@produsenmakananringanlesta9233",
+    shopee: "https://shopee.co.id/makaronikejulestari?mmp_pid=an_11036200022&uls_trackid=56tiffnc07lo&utm_campaign=-&utm_content=-&utm_medium=affiliates&utm_source=an_11036200022&utm_term=fpw1bj4s62ij"
   },
 
   // Batas jumlah pemesanan pada form (default: 1 - 99)

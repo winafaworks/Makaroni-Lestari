@@ -7,8 +7,7 @@ export const galleryCategories = [
   "Kunjungan Tokoh",
   "Kunjungan & Edukasi",
   "Pameran & Acara",
-  "Kemitraan",
-  "Produk"
+  "Kemitraan"
 ];
 
 export const galleryItems = [
@@ -214,72 +213,5 @@ export const galleryItems = [
     image: "/images/galeri/dokumentasi-kegiatan-8.jpg",
     title: "Antusiasme Pelanggan Setia",
     caption: "Senyum puas pelanggan menikmati gurihnya makaroni keju Lestari."
-  },
-
-  // --- Produksi & Distribusi ---
-  {
-    id: 29,
-    category: "Produk",
-    image: "/images/galeri/dokumentasi-produksi-1.jpg",
-    title: "Dapur Produksi Bersih & Higienis",
-    caption: "Proses pengolahan makaroni keju higienis dengan standar kebersihan terjaga."
-  },
-  {
-    id: 30,
-    category: "Produk",
-    image: "/images/galeri/dokumentasi-produksi-2.jpg",
-    title: "Pemeriksaan Mutu Kerenyahan",
-    caption: "Memastikan setiap butir makaroni matang merata dan renyah sempurna."
-  },
-  {
-    id: 31,
-    category: "Produk",
-    image: "/images/galeri/dokumentasi-kemasan-1.jpg",
-    title: "Etalase Kemasan Siap Kirim",
-    caption: "Deretan kemasan siap kirim dengan varian rasa lengkap ke berbagai kota."
-  },
-
-  // --- Varian Produk Makaroni ---
-  {
-    id: 32,
-    category: "Produk",
-    image: "/images/makaroni_keju_original.webp",
-    title: "Makaroni Keju Original",
-    caption: "Renyah dan gurih dengan taburan keju melimpah."
-  },
-  {
-    id: 33,
-    category: "Produk",
-    image: "/images/makaroni_keju_pedas_gurih.webp",
-    title: "Makaroni Keju Pedas Gurih",
-    caption: "Paduan bumbu pedas nikmat yang bikin ketagihan."
-  },
-  {
-    id: 34,
-    category: "Produk",
-    image: "/images/makaroni_keju_balado.webp",
-    title: "Makaroni Keju Balado",
-    caption: "Cita rasa balado gurih manis pedas yang pas."
-  },
-  {
-    id: 35,
-    category: "Produk",
-    image: "/images/makaroni_keju_jagung_bakar.webp",
-    title: "Makaroni Jagung Bakar",
-    caption: "Aroma jagung bakar manis yang menggoda selera."
-  },
-  {
-    id: 36,
-    category: "Produk",
-    image: "/images/makaroni_keju_coklat.webp",
-    title: "Makaroni Keju Cokelat",
-    caption: "Inovasi manis legit berpadu keju gurih khas Lestari."
-  },
-  {
-    id: 37,
-    category: "Produk",
-    image: "/images/makaroni_keju_daun_seledri.webp",
-    title: "Makaroni Daun Seledri",
-    caption: "Aroma wangi daun seledri segar berpadu makaroni renyah."
   }
 ];

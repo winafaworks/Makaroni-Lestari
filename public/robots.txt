@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://makaronikejulestari.pages.dev/sitemap.xml
+Sitemap: https://makaroni-lestari-purwokerto.vercel.app/sitemap.xml

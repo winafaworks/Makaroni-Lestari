@@ -1,32 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://makaronikejulestari.pages.dev/</loc>
+    <loc>https://makaroni-lestari-purwokerto.vercel.app/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://makaronikejulestari.pages.dev/produk</loc>
+    <loc>https://makaroni-lestari-purwokerto.vercel.app/produk</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://makaronikejulestari.pages.dev/pesan</loc>
+    <loc>https://makaroni-lestari-purwokerto.vercel.app/kemasan-lainnya</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://makaroni-lestari-purwokerto.vercel.app/pesan</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://makaronikejulestari.pages.dev/tentang</loc>
+    <loc>https://makaroni-lestari-purwokerto.vercel.app/tentang</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://makaronikejulestari.pages.dev/galeri</loc>
+    <loc>https://makaroni-lestari-purwokerto.vercel.app/galeri</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://makaronikejulestari.pages.dev/kontak</loc>
+    <loc>https://makaroni-lestari-purwokerto.vercel.app/kontak</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

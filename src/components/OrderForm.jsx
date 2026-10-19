@@ -10,6 +10,8 @@ import SizeChips from "./SizeChips";
 import OrderSummary from "./OrderSummary";
 import { IconWhatsApp, IconAlert } from "./icons/Icons";
 
+const STORAGE_KEY = "lestari_order_draft";
+
 /**
  * Form Pemesanan Makaroni Keju Lestari
  * Berada di dalam frame-kemasan, statis, tanpa backend, langsung ke WhatsApp.
@@ -19,15 +21,32 @@ export default function OrderForm() {
   const urlVariant = searchParams.get("varian");
 
   // Inisialisasi varian default
-  const initialVariant = products.find((p) => p.id === urlVariant)?.id || products[0]?.id || "";
+  const defaultVariant = products.find((p) => p.id === urlVariant)?.id || products[0]?.id || "";
 
-  const [values, setValues] = useState({
-    name: "",
-    variant: initialVariant,
-    size: "",
-    qty: 1,
-    phone: "",
-    address: ""
+  const [values, setValues] = useState(() => {
+    const fallback = {
+      name: "",
+      variant: defaultVariant,
+      size: "",
+      qty: 1,
+      phone: "",
+      address: ""
+    };
+
+    try {
+      const saved = sessionStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        return {
+          ...fallback,
+          ...parsed,
+          variant: urlVariant && products.some((p) => p.id === urlVariant) ? urlVariant : (parsed.variant || fallback.variant)
+        };
+      }
+    } catch {
+      // Abaikan jika sessionStorage dibatasi di browser
+    }
+    return fallback;
   });
 
   const [errors, setErrors] = useState({});
@@ -38,17 +57,30 @@ export default function OrderForm() {
   const phoneInputRef = useRef(null);
   const addressInputRef = useRef(null);
 
+  // Simpan draft isian ke sessionStorage setiap kali ada perubahan
+  useEffect(() => {
+    try {
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(values));
+    } catch {
+      // Abaikan jika sessionStorage tidak tersedia
+    }
+  }, [values]);
+
   // Periksa apakah varian terpilih memiliki variasi ukuran
   const currentProduct = products.find((p) => p.id === values.variant);
   const hasMultipleSizes = currentProduct?.sizes && currentProduct.sizes.length > 1;
 
-  // Set ukuran default saat varian berganti
+  // Set ukuran default saat varian berganti jika ukuran saat ini belum cocok
   useEffect(() => {
     if (currentProduct?.sizes && currentProduct.sizes.length > 0) {
-      setValues((prev) => ({
-        ...prev,
-        size: currentProduct.sizes[0].label
-      }));
+      setValues((prev) => {
+        const isValidSize = currentProduct.sizes.some((s) => s.label === prev.size);
+        if (isValidSize) return prev;
+        return {
+          ...prev,
+          size: currentProduct.sizes[0].label
+        };
+      });
     }
   }, [values.variant]);
 
@@ -123,6 +155,19 @@ export default function OrderForm() {
   };
 
   const handleReset = () => {
+    try {
+      sessionStorage.removeItem(STORAGE_KEY);
+    } catch {
+      // Abaikan
+    }
+    setValues({
+      name: "",
+      variant: defaultVariant,
+      size: currentProduct?.sizes?.[0]?.label || "",
+      qty: 1,
+      phone: "",
+      address: ""
+    });
     setSentData(null);
     setErrors({});
   };

@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import OrderFab from "./components/OrderFab";
+import OrderReminderToast from "./components/OrderReminderToast";
 
 // Pages
 import Home from "./pages/Home";
@@ -58,6 +59,7 @@ export default function App() {
         </main>
         <Footer />
         <OrderFab />
+        <OrderReminderToast />
       </div>
     </BrowserRouter>
   );

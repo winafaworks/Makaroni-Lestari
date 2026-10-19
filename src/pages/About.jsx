@@ -12,7 +12,7 @@ export default function About() {
             Mengenal Kami
           </span>
           <h1 className="font-judul text-3xl sm:text-4xl md:text-5xl text-tua mb-3">
-            Tentang Makaroni Lestari
+            Tentang Makaroni Keju Lestari
           </h1>
           <p className="text-sm sm:text-base text-karamel">
             Camilan renyah berpadu gurihnya keju khas Purwokerto sejak tahun 2012.

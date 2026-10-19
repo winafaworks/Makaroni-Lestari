@@ -146,9 +146,9 @@ export default function Header() {
           <NavLink
             to="/"
             className={({ isActive }) =>
-              `text-sm font-bold transition-colors ${
+              `nav-link-animated text-sm font-bold ${
                 isActive
-                  ? "text-tua border-b-2 border-tua pb-0.5"
+                  ? "text-tua is-active"
                   : "text-karamel hover:text-tua"
               }`
             }
@@ -167,9 +167,9 @@ export default function Header() {
               <NavLink
                 to="/produk"
                 className={({ isActive }) =>
-                  `text-sm font-bold transition-colors ${
+                  `nav-link-animated text-sm font-bold ${
                     isActive
-                      ? "text-tua border-b-2 border-tua pb-0.5"
+                      ? "text-tua is-active"
                       : "text-karamel hover:text-tua"
                   }`
                 }
@@ -242,9 +242,9 @@ export default function Header() {
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
-                `text-sm font-bold transition-colors ${
+                `nav-link-animated text-sm font-bold ${
                   isActive
-                    ? "text-tua border-b-2 border-tua pb-0.5"
+                    ? "text-tua is-active"
                     : "text-karamel hover:text-tua"
                 }`
               }

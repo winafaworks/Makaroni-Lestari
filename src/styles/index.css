@@ -283,3 +283,44 @@ input, select, textarea {
     transform: none;
   }
 }
+
+/* Navbar Link Underline Hover Animation (Left-to-Right + Fade-In) */
+.nav-link-animated {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  transition: color 0.2s ease;
+}
+
+.nav-link-animated::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-tua);
+  border-radius: 9999px;
+  transform-origin: left center;
+  transform: scaleX(0);
+  opacity: 0;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease-out;
+}
+
+.nav-link-animated:hover::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.nav-link-animated.is-active::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-link-animated::after {
+    transition: none;
+  }
+}

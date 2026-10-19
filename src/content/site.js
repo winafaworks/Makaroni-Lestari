@@ -40,7 +40,7 @@ export const site = {
 
   // Template pesan WhatsApp
   orderTemplate: {
-    opening: "Halo Lestari, saya mau pesan Makaroni Keju.",
+    opening: "Hallo Makaroni Keju Lestari, saya mau pesan Makaroni Keju.",
     closing: "Terima kasih."
   },
 

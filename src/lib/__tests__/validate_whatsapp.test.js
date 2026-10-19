@@ -60,7 +60,7 @@ describe("WhatsApp Message Builder (buildOrderMessage & buildOrderLink)", () => 
     };
 
     const message = buildOrderMessage(order);
-    expect(message).toContain("Halo Lestari, saya mau pesan Makaroni Keju.");
+    expect(message).toContain("Hallo Makaroni Keju Lestari, saya mau pesan Makaroni Keju.");
     expect(message).toContain("Nama: Budi Santoso");
     expect(message).toContain("Varian rasa: Original Keju");
     expect(message).toContain("Ukuran: 90 g");

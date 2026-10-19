@@ -70,7 +70,7 @@ export default function Order() {
                 className="btn-press inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-mentega text-tua border border-tua font-bold text-xs sm:text-sm hover:bg-keju transition-colors"
               >
                 <IconShopee className="w-4 h-4 text-cabai" />
-                <span>Pesan lewat Shopee Resmi</span>
+                <span>Pesan lewat Shopee</span>
               </a>
             </div>
           )}

@@ -88,7 +88,7 @@ export default function Contact() {
                   className="flex items-center gap-2.5 p-2.5 rounded-md border border-tua/20 bg-mentega/20 hover:bg-mentega/50 text-tua text-xs font-semibold transition-colors"
                 >
                   <IconInstagram className="w-4 h-4 text-tua" />
-                  <span>Instagram Resmi</span>
+                  <span>Instagram</span>
                 </a>
 
                 {site.socials.tiktok && !site.socials.tiktok.includes("TODO") && (
@@ -99,7 +99,7 @@ export default function Contact() {
                     className="flex items-center gap-2.5 p-2.5 rounded-md border border-tua/20 bg-mentega/20 hover:bg-mentega/50 text-tua text-xs font-semibold transition-colors"
                   >
                     <IconTikTok className="w-4 h-4 text-tua" />
-                    <span>TikTok Resmi</span>
+                    <span>TikTok</span>
                   </a>
                 )}
 
@@ -111,7 +111,7 @@ export default function Contact() {
                     className="flex items-center gap-2.5 p-2.5 rounded-md border border-tua/20 bg-mentega/20 hover:bg-mentega/50 text-tua text-xs font-semibold transition-colors"
                   >
                     <IconYouTube className="w-4 h-4 text-tua" />
-                    <span>YouTube Resmi</span>
+                    <span>YouTube</span>
                   </a>
                 )}
 

@@ -5,11 +5,11 @@ import { IconClose, IconWhatsApp } from "./icons/Icons";
 const VISITED_KEY = "lestari_visited_pesan";
 const LEFT_TIME_KEY = "lestari_left_pesan_at";
 const SHOWN_KEY = "lestari_order_reminder_shown";
-const REMINDER_DELAY_MS = 60 * 1000; // 1 menit
+const REMINDER_DELAY_MS = 30 * 1000; // 30 detik
 
 /**
  * Komponen Pengingat Pemesanan (Toast Notification) di pojok kanan atas.
- * Muncul setelah pengguna meninggalkan halaman cara pesan/form pemesanan lebih dari 1 menit.
+ * Muncul setelah pengguna meninggalkan halaman cara pesan/form pemesanan lebih dari 30 detik.
  * Hanya muncul 1 kali saja per sesi.
  */
 export default function OrderReminderToast() {

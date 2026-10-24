@@ -52,10 +52,19 @@ export default function OrderForm() {
   const [errors, setErrors] = useState({});
   const [sentData, setSentData] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
+  const [spamError, setSpamError] = useState("");
 
   const nameInputRef = useRef(null);
   const phoneInputRef = useRef(null);
   const addressInputRef = useRef(null);
+  const mountTimeRef = useRef(Date.now());
+  const lastSubmitRef = useRef(0);
+
+  // Bersihkan peringatan spam saat pengguna memperbarui isian form
+  useEffect(() => {
+    if (spamError) setSpamError("");
+  }, [values]);
 
   // Simpan draft isian ke sessionStorage setiap kali ada perubahan
   useEffect(() => {
@@ -106,6 +115,26 @@ export default function OrderForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (spamError) setSpamError("");
+
+    // 1. Anti-spam: Honeypot check (jika diisi oleh bot otomatis, hentikan pengiriman secara senyap)
+    if (honeypot && honeypot.trim() !== "") {
+      return;
+    }
+
+    // 2. Anti-spam: Jeda waktu pengisian minimal (mencegah bot instan mengirim form < 2 detik sejak form dimuat)
+    const timeElapsed = Date.now() - mountTimeRef.current;
+    if (timeElapsed < 2000) {
+      setSpamError("Pengisian formulir terlalu cepat. Mohon tunggu sejenak sebelum mengirim.");
+      return;
+    }
+
+    // 3. Anti-spam: Cooldown antar pengiriman (mencegah klik berulang / flood ke nomor WhatsApp tujuan)
+    const now = Date.now();
+    if (now - lastSubmitRef.current < 5000) {
+      setSpamError("Mohon tunggu beberapa detik sebelum mengirim pesanan kembali.");
+      return;
+    }
 
     // Cek apakah nomor WhatsApp owner masih placeholder TODO
     const isOwnerPhoneMissing = !site.phone || site.phone.includes("TODO");
@@ -130,6 +159,7 @@ export default function OrderForm() {
     }
 
     setIsSubmitting(true);
+    lastSubmitRef.current = Date.now();
 
     const orderPayload = {
       name: values.name,
@@ -170,6 +200,9 @@ export default function OrderForm() {
     });
     setSentData(null);
     setErrors({});
+    setSpamError("");
+    setHoneypot("");
+    mountTimeRef.current = Date.now();
   };
 
   const isOwnerPhoneMissing = !site.phone || site.phone.includes("TODO");
@@ -194,6 +227,24 @@ export default function OrderForm() {
       </div>
 
       <form noValidate onSubmit={handleSubmit} className="space-y-5">
+        {/* Anti-Spam Honeypot Field (tersembunyi dari manusia, menjebak bot spam otomatis) */}
+        <div
+          aria-hidden="true"
+          className="opacity-0 absolute -z-50 pointer-events-none select-none h-0 w-0 overflow-hidden"
+          tabIndex={-1}
+        >
+          <label htmlFor="order-bot-trap">Abaikan kolom ini</label>
+          <input
+            id="order-bot-trap"
+            type="text"
+            name="contact_bot_honey"
+            tabIndex={-1}
+            autoComplete="off"
+            value={honeypot}
+            onChange={(e) => setHoneypot(e.target.value)}
+          />
+        </div>
+
         {/* 1. Nama Pemesan */}
         <div>
           <label htmlFor="order-name" className="block text-sm font-bold text-tua mb-1.5">
@@ -330,6 +381,14 @@ export default function OrderForm() {
             </p>
           )}
         </div>
+
+        {/* Notifikasi Peringatan Anti-Spam */}
+        {spamError && (
+          <div className="p-3 bg-cabai/10 border-2 border-cabai/30 rounded-xs text-xs text-cabai font-semibold flex items-center gap-2">
+            <IconAlert className="w-4 h-4 shrink-0 text-cabai" />
+            <span>{spamError}</span>
+          </div>
+        )}
 
         {/* Tombol Pesan WhatsApp */}
         <div className="pt-2">

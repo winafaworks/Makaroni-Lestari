@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { validateOrderForm, PHONE_RE, sanitizePhone } from "../validate";
-import { buildOrderMessage, buildOrderLink } from "../whatsapp";
+import { buildOrderMessage, buildOrderLink, getCleanDestinationPhone } from "../whatsapp";
 
 describe("Validation Logic (validateOrderForm)", () => {
   const validOrder = {
@@ -85,5 +85,12 @@ describe("WhatsApp Message Builder (buildOrderMessage & buildOrderLink)", () => 
     expect(url).toContain("%23"); // #
     expect(url).toContain("%25"); // %
     expect(url).not.toContain("🧀"); // emoji encoded
+  });
+
+  it("cleans and sanitizes destination phone properly", () => {
+    expect(getCleanDestinationPhone("6281904284264")).toBe("6281904284264");
+    expect(getCleanDestinationPhone("+62 819-0428-4264")).toBe("6281904284264");
+    expect(getCleanDestinationPhone("TODO(OWNER)")).toBe("");
+    expect(getCleanDestinationPhone("")).toBe("");
   });
 });

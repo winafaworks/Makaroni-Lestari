@@ -48,7 +48,7 @@ export const products = [
     badge: null,
     isBestSeller: false,
     isSpicy: true,
-    image: "/images/makaroni_keju_balado.webp",
+    image: "/images/balado.jpeg",
     description: "Bumbu balado merah manis pedas berpadu gurih renyahnya makaroni keju. Cocok untuk teman santai sore hari.",
     sizes: [
       {
@@ -63,7 +63,7 @@ export const products = [
     badge: null,
     isBestSeller: false,
     isSpicy: false,
-    image: "/images/makaroni_keju_jagung_bakar.webp",
+    image: "/images/jagung bakar.jpeg",
     description: "Aroma khas jagung bakar manis gurih yang menyatu dengan keju. Pilihan favorit anak-anak dan keluarga.",
     sizes: [
       {
@@ -78,7 +78,7 @@ export const products = [
     badge: null,
     isBestSeller: false,
     isSpicy: false,
-    image: "/images/makaroni_keju_coklat.webp",
+    image: "/images/cokelat.jpeg",
     description: "Sensasi unik makaroni renyah dibalut cokelat manis legit. Kombinasi manis gurih yang renyah dan nagih.",
     sizes: [
       {

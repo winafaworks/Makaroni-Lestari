@@ -93,7 +93,7 @@ export const products = [
     badge: null,
     isBestSeller: false,
     isSpicy: false,
-    image: "/images/makaroni_keju_daun_seledri.webp",
+    image: "/images/seledri.jpeg",
     description: "Sentuhan rempah daun seledri segar yang menambah keharuman dan kenikmatan gurih pada makaroni keju.",
     sizes: [
       {
